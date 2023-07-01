@@ -87,3 +87,8 @@ body {
 .content-section {
     margin-top: 20px;
 }
+
+.categories-view {
+    display: flex;
+    flex-wrap: wrap;
+}

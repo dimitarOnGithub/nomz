@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+{% if title %}
+{{ title }}
+{% else %}
+nomz.
+{% endif %}
+{% endblock %}
+{% block body %}
+    <div class="login-box">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset>
+                <h2>Login</h2>
+                <div class="form-field">
+                    {% if form.username.errors %}
+                    {{ form.username(placeholder="Username") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.username.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.username(placeholder="Username") }}
+                    {% endif %}
+                </div>
+                <div class="form-field">
+                    {{ form.password(placeholder="Password") }}
+                </div>
+                <div class="form-field">
+                    {{ form.submit(class="btn") }}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}
