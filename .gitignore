@@ -1,0 +1,7 @@
+dev_config.json
+*/logs/*
+.idea/*
+.python-version
+*.egg-info/
+*.pyc
+.DS_Store

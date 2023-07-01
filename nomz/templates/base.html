@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Dimitar Ivanov">
+    <meta name="description"
+          content="A small, ad-free, recipes site aiming to provide clear, concise and free of clutter content.">
+    <meta property="og:description"
+          content="A small, ad-free, recipes site aiming to provide clear, concise and free of clutter content.">
+    <meta property="og:title" content="nomz.">
+
+    {% block head %}
+    {% endblock %}
+
+    <link rel="stylesheet" href="/static/custom.css">
+
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div class="header">
+        <div class="title">nomz.</div>
+        <div class="navigation">
+            <a class="nav-button" href="#">Meals</a>
+            <a class="nav-button" href="#">Bakes</a>
+        </div>
+        <form class="search-box">
+            <input type="search" name="search" id="search" placeholder="Search recipes, ingredients etc...">
+        </form>
+    </div>
+    <div class="content-section">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="flashed-messages">
+                {% for message in messages %}
+                <div class="flashed-message">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+        {% block body %}
+        {% endblock %}
+    </div>
+    <footer class="">
+        <h3>Footer text here</h3>
+    </footer>
+</body>
+</html>
