@@ -16,3 +16,8 @@ home = Blueprint('home', __name__, template_folder='templates')
 def home_page():
     categories = Category.query.all()
     return render_template('home.html', categories=categories)
+
+
+@home.route("/new")
+def new_page():
+    return render_template('new.html')

@@ -1,6 +1,8 @@
 import json
 from datetime import datetime
 import ast
+
+import flask_login
 from flask import Blueprint, request, render_template, flash, url_for
 from flask_login import current_user, login_user
 from werkzeug.utils import redirect
@@ -29,3 +31,9 @@ def login_page():
             flash("Nope")
     return render_template("login.html", form=login_form)
 
+
+@auth.route("/logout")
+def logout_page():
+    if current_user.is_authenticated:
+        flask_login.logout_user()
+    return redirect(url_for('home.home_page'))
